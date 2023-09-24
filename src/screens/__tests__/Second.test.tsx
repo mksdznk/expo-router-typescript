@@ -2,7 +2,7 @@ import React from 'react'
 import { create, type ReactTestRendererJSON } from 'react-test-renderer'
 import { ThemeProvider } from 'styled-components/native'
 import { appTheme } from 'src/assets/styles/theme'
-import Second from 'src/screens/Second'
+import Second from 'src/screens/Wallet'
 
 jest.mock('expo-router', () => ({ Stack: { Screen: 'Screen' } }))
 jest.mock('src/components/LinkButton', () => 'LinkButton')
