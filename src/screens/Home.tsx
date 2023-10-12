@@ -43,7 +43,7 @@ export default function HomeScreen() {
               <td style={styles.table}>{coin.symbol}</td>
               <td style={styles.table}>{coin.price}</td>
               <td style={checkGain(coin)}>{coin.change}%</td>
-              <td style={styles.table}> <input type="button" value="ADD" onClick={ () => addCoin(coin)} /> </td>
+              <td style={styles.table}> <input type="button" value="ADD" onClick={ () => addCoin(coin)}/> </td>
             </tr>   
           ))
           }
@@ -137,13 +137,17 @@ function addCoin (coin: coin) {
       return;
     }
   }
+
+  let investment: string | null = prompt('ENTER INVESTMENT $ VALUE OF: ' + coin.name);
+  let quantity: string | null = prompt('ENTER QUANTITY OF: ' + coin.name); 
+  
   const coinToAdd: walletCoin = {
     rank: coin.rank,
     name: coin.name,
     symbol: coin.symbol,
     price: coin.price,
-    investment: 0,
-    quantity: 0,
+    investment: (investment !== null? parseFloat(investment) : 0),
+    quantity: (quantity !== null? parseFloat(quantity) : 0),
     value: 0,
     profit: 0,
   }

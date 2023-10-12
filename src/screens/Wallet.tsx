@@ -20,6 +20,8 @@ export default function Wallet() {
       totalProfit += wallet[i].profit;
       totalValue += wallet[i].value;
     }
+    totalProfit = parseFloat(totalProfit.toFixed(2));
+    totalValue = parseFloat(totalValue.toFixed(2));
 
     // function to set the inputed values in table cell as coins investment value
     const updateI = (e: React.ChangeEvent<HTMLInputElement>, walletCoin: walletCoin): void => {
@@ -42,7 +44,7 @@ export default function Wallet() {
     <ScreenLayout testID="second-screen-layout">
       <S.TableContainer>
       <LinkButton href="/" text="Go To Home Screen" />
-        <button type='button' onClick={() => window.location.reload()} >SAVE</button>
+        <button type='button' onClick={() => window.location.reload()} >Press to save and calculate investment and quantity</button>
         <ScrollView>
         <table style={styles.table}>
           <thead>
