@@ -8,7 +8,6 @@ export default function HomeScreen() {
   //function makes call to API to get coin data
   getCoins();
 
-  
   // retrieving saved data from local storage to load onto page
   let storageCoins = localStorage.getItem('coins');
   if (storageCoins === null) storageCoins = '[{"rank":0,"name":"NO COINS, RELOAD PAGE","symbol":"","price":0,"change":0}]';

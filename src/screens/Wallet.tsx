@@ -9,6 +9,7 @@ import {
 
 
 export default function Wallet() {
+
     let totalProfit: number = 0;
     let totalValue: number = 0;
     
@@ -16,6 +17,10 @@ export default function Wallet() {
     let storageWallet = localStorage.getItem('wallet');
     if (storageWallet === null) storageWallet = '[{"rank":0,"name":"NO COINS IN WALLET","symbol":"","price":0,"investment":0,"quantity":0,"value":0,"profit":0}]';
     wallet = JSON.parse(storageWallet);
+    for (let i = 0; i < wallet.length; i++) {
+      wallet[i].value = parseFloat((wallet[i].quantity * wallet[i].price).toFixed(2));
+      wallet[i].profit = parseFloat((wallet[i].value - wallet[i].investment).toFixed(2)); 
+    }
     for (let i = 0; i < wallet.length; i++) {
       totalProfit += wallet[i].profit;
       totalValue += wallet[i].value;
@@ -40,6 +45,7 @@ export default function Wallet() {
       localStorage.setItem('wallet', stringifiedWallet);
     };
 
+    
   return (
     <ScreenLayout testID="second-screen-layout">
       <S.TableContainer>
